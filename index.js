@@ -1,8 +1,10 @@
-require('dotenv').config();
-const express = require('express');
-const bodyParser = require('body-parser');
-const { OpenAI } = require('openai');
-const { queryDatabase } = require('./dbconnect.JS'); // Corrected casing
+import dotenv from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
+import { OpenAI } from 'openai';
+import { queryDatabase } from './dbconnect.js';
+
+dotenv.config(); // Ensure dotenv is configured here too if needed, or manage centrally.
 
 const app = express();
 const port = 3000;
@@ -62,19 +64,7 @@ app.get('/test', (req, res) => {
     return res.status(200).send("hello world");
 });
 
-async function main() {
-    try {
-        console.log("Fetching initial customer data...");
-        const customers = await queryDatabase('SELECT * FROM customers;');
-        console.log("\n--- Initial Customer Data ---");
-        console.log(customers);
-        console.log("---------------------------");
-    } catch (error) {
-        console.error("\nFailed to fetch initial customer data:", error);
-    }
-}
 
-main();
 
 app.listen(port, () => {
     console.log(`🔥 Server listening on http://localhost:${port}`);
