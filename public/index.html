@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Language to SQL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Natural Language to SQL Query</h1>
+        <form id="prompt-form">
+            <label for="prompt-input">Enter your query in natural language:</label>
+            <textarea id="prompt-input" rows="4" placeholder="e.g., Show me all customers from New York"></textarea>
+            <button type="submit">Generate SQL & Run Query</button>
+        </form>
+        <div id="results-container">
+            <h2>Results:</h2>
+            <pre id="sql-output">SQL Query will appear here...</pre>
+            <pre id="data-output">Data will appear here...</pre>
+            <div id="error-output" class="error"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
