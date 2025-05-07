@@ -3,14 +3,20 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { OpenAI } from 'openai';
 import { queryDatabase } from './dbconnect.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Define __dirname for ES module scope
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config(); // Ensure dotenv is configured here too if needed, or manage centrally.
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
+// Serve static files from the 'public' directory under the '/promptsquery' path
+app.use('/promptsquery', express.static('public'));
 
 app.use(bodyParser.json());
 
@@ -18,7 +24,9 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-app.post('/generate-sql', async (req, res) => {
+
+
+app.post('/promptsquery/generate-sql', async (req, res) => {
     const { prompt } = req.body;
 
     if (!prompt) {
@@ -60,11 +68,9 @@ app.post('/generate-sql', async (req, res) => {
     }
 });
 
-app.get('/test', (req, res) => {
+app.get('/promptsquery/test', (req, res) => {
     return res.status(200).send("hello world");
 });
-
-
 
 app.listen(port, () => {
     console.log(`🔥 Server listening on http://localhost:${port}`);

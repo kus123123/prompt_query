@@ -4,7 +4,7 @@ import pg from 'pg';
 dotenv.config();
 
 // Keep console.log for debugging if needed, or remove it.
- console.log(process.env.DB_USER);
+//  console.log(process.env.DB_USER);
 
 const config = {
     user: process.env.DB_USER ,

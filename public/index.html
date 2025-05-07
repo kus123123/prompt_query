@@ -14,6 +14,52 @@
             <textarea id="prompt-input" rows="4" placeholder="e.g., Show me all customers from New York"></textarea>
             <button type="submit">Generate SQL & Run Query</button>
         </form>
+
+        <div id="examples-container">
+            <h2>Example Prompts:</h2>
+
+            <h3>Simple Questions (Single Table, Basic Selection):</h3>
+            <ul>
+                <li>What are the first names of all customers?</li>
+                <li>Show me the emails of all customers in 'London'.</li>
+                <li>List all product names.</li>
+                <li>What is the price of a 'Laptop'?</li>
+                <li>How many orders were placed on '2025-05-01'?</li>
+            </ul>
+
+            <h3>Intermediate Questions (Single Table with Filtering/Ordering, or Simple Joins):</h3>
+            <ul>
+                <li>Show me the first and last names of customers living in the 'USA', ordered by last name.</li>
+                <li>List the product names and prices of all 'Electronics' products.</li>
+                <li>Find the order dates and quantities for customer with ID 1.</li>
+                <li>What are the product names that have a price greater than 50?</li>
+                <li>Show me the emails of customers whose first name starts with 'A'.</li>
+            </ul>
+
+            <h3>Complex Questions (Multiple Joins, Aggregation, Grouping, Filtering Across Tables):</h3>
+            <ul>
+                <li>Show the first name and last name of all customers who have placed an order.</li>
+                <li>List the product names and the first name of the customer who ordered each product.</li>
+                <li>Find the total quantity of each product ordered.</li>
+                <li>Show the first name and last name of customers who have ordered a product in the 'Electronics' category.</li>
+                <li>What are the product names ordered by customers living in 'New York'?</li>
+                <li>For each customer, show their first name and the number of orders they have placed.</li>
+                <li>List the product names and their average price within each category.</li>
+                <li>Find the customers who have ordered both a 'Laptop' and a 'Mouse'.</li>
+                <li>Show the order ID, customer's last name, and the name of the product in each order.</li>
+                <li>Which customers have not placed any orders?</li>
+            </ul>
+            
+            <h3>Very Complex/Potentially Ambiguous Questions (Testing the Limits):</h3>
+            <ul>
+                <li>Tell me the most popular product category based on the total quantity ordered.</li>
+                <li>Which customers spent the most money in May 2025?</li>
+                <li>Are there any customers who live in the same city but have never ordered the same product?</li>
+                <li>Show me the products that were ordered on consecutive days by the same customer.</li>
+                <li>Give me a list of customers and the last product they ordered.</li>
+            </ul>
+        </div>
+
         <div id="results-container">
             <h2>Results:</h2>
             <pre id="sql-output">SQL Query will appear here...</pre>

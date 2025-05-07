@@ -21,7 +21,7 @@ form.addEventListener('submit', async (event) => {
     dataOutput.textContent = 'Executing query...';
 
     try {
-        const response = await fetch('/generate-sql', {
+        const response = await fetch('generate-sql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
